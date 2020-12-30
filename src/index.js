@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {xz} from './components/app/index';
 
+console.log(xz);
 const Header = () => <h2>!!!Hello Hell!!!</h2>;
 const Input = () => <input placeholder="input here"></input>;
 const Btn = () => {
@@ -22,7 +24,7 @@ const App = () => {
 };
 
 const elem = <div>
-  <h2>Hello Hell!</h2>
+  <h2>Test!</h2>
   <input placeholder="input here"></input>
   <button>press here</button>
   </div>;
