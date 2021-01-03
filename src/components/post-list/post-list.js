@@ -3,7 +3,7 @@ import PostListItem from '../post-list-item/post-list-item';
 
 import './post-list.css';
 
-const postList = ({posts}) => {
+const postList = ({posts, onDelete}) => {
 
     // let allPosts = posts.map(post => {
     //     return (
@@ -16,7 +16,9 @@ const postList = ({posts}) => {
     let allPosts = posts.map(post => {
         return (
             <li key={post.id} className='list-group-item'>
-                <PostListItem {...post} />
+                <PostListItem {...post}
+                onDelete={() => onDelete(post.id)}
+                 />
             </li>
         );
     });
@@ -24,7 +26,6 @@ const postList = ({posts}) => {
     return (
         <ul className='app-list list-group'>
             {allPosts}
-
         </ul>
     )
 };
