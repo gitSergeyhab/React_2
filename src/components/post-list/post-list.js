@@ -5,14 +5,6 @@ import './post-list.css';
 
 const postList = ({posts, onDelete, onToggleImportant, onToggleLiked}) => {
 
-    // let allPosts = posts.map(post => {
-    //     return (
-    //     <li key={post.id} className='list-group-item'>
-    //         <PostListItem label={post.label} important={post.important} />
-    //     </li>
-    //     );
-    // });
-
     let allPosts = posts.map(post => {
         return (
             <li key={post.id} className='list-group-item'>

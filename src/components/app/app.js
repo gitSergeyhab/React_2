@@ -66,26 +66,12 @@ class App extends React.Component {
     onToggleImportant(id) {
         this.setState(({data}) => {
             return likeAndImportant(data, id, 'important');
-            // const index = data.findIndex(dat => dat.id === id);
-            // const old = data[index]
-            // const updItem = {...old, important: !old.important};
-            // const newData = [...data.slice(0, index), updItem, ...data.slice(index+1)]
-            // return {
-            //     data: newData
-            // };
         }) 
     }
 
     onToggleLiked(id) {
         this.setState(({data}) => {
             return likeAndImportant(data, id, 'liked');
-            // const index = data.findIndex(dat => dat.id === id);
-            // const old = data[index]
-            // const updItem = {...old, liked: !old.liked};
-            // const newData = [...data.slice(0, index), updItem, ...data.slice(index+1)]
-            // return {
-            //     data: newData
-            // };
         }) 
     }
 

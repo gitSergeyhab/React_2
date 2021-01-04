@@ -4,27 +4,6 @@ import './post-list-item.css';
 
 
 class PostListItem extends React.Component {
-    // constructor (props) {
-    //     super(props);
-    //     this.state = {
-    //         important: false,
-    //         like: false
-    //     };
-    //     this.onImportant = this.onImportant.bind(this);
-    //     this.onLike = this.onLike.bind(this);
-    // }
-
-    // onImportant() {
-    //     this.setState(({important}) => ({
-    //         important: !important
-    //     }))
-    // }
-
-    // onLike() {
-    //     this.setState(({like}) => ({
-    //         like: !like
-    //     }))
-    // }
 
     render() {
         const {label, onDelete, onToggleImportant, onToggleLiked, important, liked} = this.props;
