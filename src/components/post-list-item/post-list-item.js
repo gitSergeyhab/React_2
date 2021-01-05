@@ -17,7 +17,7 @@ class PostListItem extends React.Component {
             <div className={classes} >
                 <span className='app-list-item-label'
                     onClick={onToggleLiked}>
-                    {label} xxx
+                    {label}
                 </span>
                 <div className='d-flex justify-content-center align-items-center'>
                     <button type='button' className='btn-star btn-sm'
