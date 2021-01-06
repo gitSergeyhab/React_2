@@ -28,7 +28,8 @@ class App extends React.Component {
                 {label: "second2", important: false, liked: false, id: 2},
                 {label: "third3", important: true, liked: false, id: 3}
             ],
-            term: ''
+            term: '',
+            filter: 'All'
         };
         this.maxId = 3;
         this.deleteItem = this.deleteItem.bind(this);
@@ -36,6 +37,7 @@ class App extends React.Component {
         this.onToggleImportant = this.onToggleImportant.bind(this);
         this.onToggleLiked = this.onToggleLiked.bind(this);
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
+        this.onFilterSelect = this.onFilterSelect.bind(this)
     }
 
     addItem(text) {
@@ -77,20 +79,30 @@ class App extends React.Component {
         }) 
     }
 
-    searchPosts(items, term) {
+    searchPosts(items, term, filter) {
         if (!term.length) return items;
         return items.filter(item => item.label.indexOf(term) > -1);
+    }
+
+    filterPosts(items, filter) {
+        if (filter === "All") return items;
+        return items.filter(item => item[filter])
     }
 
     onUpdateSearch(term) {
         this.setState({term})
     }
 
-    render() {
-        const liked = this.state.data.filter(post => post.liked).length;
-        const allPosts = this.state.data.length;
+    onFilterSelect(filter) {
+        this.setState({filter})
+    }
 
-        const visiblePosts = this.searchPosts(this.state.data, this.state.term);
+    render() {
+        const {data, term, filter} = this.state;
+        const liked = data.filter(post => post.liked).length;
+        const allPosts = data.length;
+        
+        const visiblePosts = this.filterPosts(this.searchPosts(data, term, filter), filter);
         return (
             <div className='app'>
             <AppHeader
@@ -100,7 +112,9 @@ class App extends React.Component {
             <div className='search-panel d-flex'>
                 <SearchPanel
                     onUpdateSearch={this.onUpdateSearch}/>
-                <PostStatusFilter/>
+                <PostStatusFilter
+                    filter={filter}
+                    onFilterSelect={this.onFilterSelect}/>
             </div>
             <PostList 
                 posts={visiblePosts} 
